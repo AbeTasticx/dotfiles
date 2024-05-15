@@ -78,7 +78,7 @@ pyenv install 3.11
 pyenv install 3.12
 
 # Install latest NODE version
-nvm install latest
+nvm install node
 
 
 # Display completion message
