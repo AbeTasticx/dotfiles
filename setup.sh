@@ -70,6 +70,8 @@ source ~/.zshrc
 # Change the default shell to Zsh for the current user
 chsh -s $(which zsh)
 
+echo -e "\e[32mPlease enter your sudo password:\e[0m"
+
 # Install Python versions
 pyenv install 3.10
 pyenv install 3.11
