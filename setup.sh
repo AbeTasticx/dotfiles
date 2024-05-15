@@ -1,24 +1,18 @@
-# Check if script is run as root
-if [ "$(id -u)" != "0" ]; then
-    echo "This script must be run with sudo. Exiting."
-    exit 1
-fi
-
 # Update package repositories
-apt update
+sudo apt update
 
 # Upgrade installed packages
-apt upgrade -y
+sudo apt upgrade -y
 
 # Install curl
-apt install curl -y
+sudo apt install curl -y
 
 # Install Git
-apt install git -y
+sudo apt install git -y
 git config --global init.defaultBranch main
 
 # Install Zsh
-apt install zsh -y
+sudo apt install zsh -y
 
 
 # Install Starship
@@ -27,17 +21,17 @@ curl -sS https://starship.rs/install.sh | sh
 # Setup Pyenv
 curl https://pyenv.run | bash
 
-apt update 
-apt install build-essential libssl-dev zlib1g-dev \
+sudo apt update 
+sudo apt install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 
 # Install .NET 8
-apt-get update 
-apt-get install -y dotnet-sdk-8.0
+sudo apt-get update 
+sudo apt-get install -y dotnet-sdk-8.0
 
-apt-get install -y aspnetcore-runtime-8.0
+sudo apt-get install -y aspnetcore-runtime-8.0
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -52,19 +46,20 @@ mkdir -p ~/.config
 ln -sf ~/.dotfiles/starship.toml ~/.config/starship.toml
 
 # Install Docker
-apt-get update
-apt-get install ca-certificates -y
-install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-chmod a+r /etc/apt/keyrings/docker.asc
+sudo apt-get update
+sudo apt-get install ca-certificates -y
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-   tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Switch to zsh
 zsh
