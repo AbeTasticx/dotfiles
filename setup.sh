@@ -62,7 +62,7 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Switch to zsh
-zsh
+exec zsh -c '
 
 # source ZSHRC
 source ~/.zshrc
@@ -78,6 +78,8 @@ pyenv install 3.12
 # Install latest NODE version
 nvm install latest
 
+
 # Display completion message
 echo -e "\e[32mDotfiles installation completed.\e[0m"
 echo "Please restart your terminal to apply changes."
+'
