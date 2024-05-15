@@ -20,8 +20,6 @@ git config --global init.defaultBranch main
 # Install Zsh
 apt install zsh -y
 
-# Change the default shell to Zsh for the current user
-chsh -s $(which zsh)
 
 # Install Starship
 curl -sS https://starship.rs/install.sh | sh
@@ -34,10 +32,6 @@ apt install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
-# Install Python versions
-pyenv install 3.10
-pyenv install 3.11
-pyenv install 3.12
 
 # Install .NET 8
 apt-get update 
@@ -47,7 +41,6 @@ apt-get install -y aspnetcore-runtime-8.0
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm install latest
 
 # Create symbolic links
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
@@ -72,6 +65,23 @@ echo \
 apt-get update
 
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+# Switch to zsh
+zsh
+
+# source ZSHRC
+source ~/.zshrc
+
+# Change the default shell to Zsh for the current user
+chsh -s $(which zsh)
+
+# Install Python versions
+pyenv install 3.10
+pyenv install 3.11
+pyenv install 3.12
+
+# Install latest NODE version
+nvm install latest
 
 # Display completion message
 echo -e "\e[32mDotfiles installation completed.\e[0m"
