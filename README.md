@@ -22,3 +22,7 @@ chmod 744 setup.sh
 
 ./setup.sh
 ```
+
+Manual setups:
+
+- gsduo for powershell
