@@ -80,6 +80,9 @@ pyenv install 3.12
 # Install latest NODE version
 nvm install node
 
+sudo apt-get install npm
+
+sudo npm install -g wls-open
 
 # Display completion message
 echo -e "\e[32mDotfiles installation completed.\e[0m"

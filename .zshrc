@@ -12,6 +12,7 @@ alias ll="ls -al"
 alias zshrc="vim ~/.zshrc"
 alias szsh="source ~/.zshrc"
 alias rdp='f() {mstsc.exe /v:$1};f'
+alias open="wsl-open"
 
 eval "$(pyenv init -)"
 eval "$(starship init zsh)"
